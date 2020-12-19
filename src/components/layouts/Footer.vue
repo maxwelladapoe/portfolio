@@ -9,7 +9,7 @@
                         </p>
                         <p>Fullstack Development, Graphic Design & UI Design</p>
                     </div>
-                    <div class="is-6 is-offset-3">
+                    <div class="column is-6 is-offset-3">
 
                         <div class="social-wrap">
                             <div class="social-icon">

@@ -6,15 +6,15 @@
             <div class="my-bio">
                 <div class="columns">
                     <div class="column is-5">
-                        <p class="is-size-4 has-text-white"><span class="title has-text-white has-text-weight-bold">Hello, Nice to meet you</span><br>
+                        <p class="is-size-4 has-text-white"><span class="title has-text-white has-text-weight-bold">Hello, nice to meet you</span><br>
                             I am Maxwell Adapoe, a fullstack web & mobile app
                             developer & graphic designer
                             based in Ghana.</p>
                         <p class="subtitle has-margin-top-50 has-text-white has-text-weight-bold">My Current Stack</p>
 
                         <div class="tags">
-                            <span class="tag is-rounded is-outlined">Html</span>
-                            <span class="tag is-rounded  is-outlined">Css</span>
+                            <span class="tag is-rounded is-outlined">HTML</span>
+                            <span class="tag is-rounded  is-outlined">CSS</span>
                             <span class="tag is-rounded  is-outlined">JavaScript</span>
                             <span class="tag is-rounded  is-outlined">Vue Js</span>
                             <span class="tag is-rounded  is-outlined">Node</span>
@@ -82,6 +82,10 @@
 
     export default {
         name: 'Home',
+        metaInfo: {
+            // if no subcomponents specify a metaInfo.title, this title will be used
+            title: ''
+        },
         components: {}
     }
 </script>

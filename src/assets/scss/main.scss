@@ -390,7 +390,16 @@ height: auto;
 }
 
 .social-wrap{
+  display: flex;
+  justify-content: space-between;
+  width: 200px;
+  margin-left: auto;
+  margin-right: unset;
+  @include for-phone-only{
+    margin-right: auto;
+  }
   .social-icon{
     display: inline-block;
+
   }
 }

@@ -51,7 +51,7 @@
             // if no subcomponents specify a metaInfo.title, this title will be used
             title: 'Maxwell Adapoe',
             // all titles will be injected into this template
-            titleTemplate: '%s | Maxwell Adapoe'
+            titleTemplate: '%s | Home'
         },
         data() {
             return {}
