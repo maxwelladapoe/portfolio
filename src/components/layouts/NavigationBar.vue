@@ -7,14 +7,11 @@
                     <span class="has-text-weight-bold ">maxwell adapoe</span>
                 </div>
 
-                <div @click="showNav=!showNav" class="hamburger">
-                    <div class="menu-icon" :class="{'active':showNav}">
-                        <span class="line-1"></span>
-                        <span class="line-2"></span>
-                        <span class="line-3"></span>
-                    </div>
+                <a class="hamburger is-red" href="mailto:me@maxwelladapoe.com,maxwelladapoe@gmail.com">
+                    <b-icon icon="mail"/>
+                </a>
 
-                </div>
+
 
             </div>
             <b-sidebar type="is-light" right fullheight :open.sync="showNav">

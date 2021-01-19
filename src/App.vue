@@ -22,8 +22,11 @@
                     <div class="item-wraps">
                         <div class="scroll-down-button">
                             <div class="down-icon">
-                                <div class="line-1"></div>
-                                <div class="line-2"></div>
+                                <div class="mouse-shape">
+                                    <div class="small-circle"></div>
+                                </div>
+
+
                             </div>
 
                         </div>
@@ -46,12 +49,13 @@
     import NavigationBar from "./components/layouts/NavigationBar";
     import Footer from "./components/layouts/Footer";
 
+
     export default {
         metaInfo: {
             // if no subcomponents specify a metaInfo.title, this title will be used
             title: 'Maxwell Adapoe',
             // all titles will be injected into this template
-            titleTemplate: '%s | Home'
+            // titleTemplate: '%s | Home'
         },
         data() {
             return {}

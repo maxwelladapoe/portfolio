@@ -1,3 +1,86 @@
+// Import Bulma's core
+@import "~bulma/sass/utilities/_all";
+
+// Set your colors
+$primary: #4a4a4a;
+$primary-light: findLightColor($primary);
+$primary-dark: findDarkColor($primary);
+$primary-invert: findColorInvert($primary);
+$twitter: #4099FF;
+$twitter-invert: findColorInvert($twitter);
+
+
+// Lists and maps
+$custom-colors: null !default;
+$custom-shades: null !default;
+
+// Setup $colors to use as bulma classes (e.g. 'is-twitter')
+$colors: mergeColorMaps(
+                (
+                        "white": (
+                                $white,
+                                $black,
+                        ),
+                        "black": (
+                                $black,
+                                $white,
+                        ),
+                        "light": (
+                                $light,
+                                $light-invert,
+                        ),
+                        "dark": (
+                                $dark,
+                                $dark-invert,
+                        ),
+                        "primary": (
+                                $primary,
+                                $primary-invert,
+                                $primary-light,
+                                $primary-dark,
+                        ),
+                        "link": (
+                                $link,
+                                $link-invert,
+                                $link-light,
+                                $link-dark,
+                        ),
+                        "info": (
+                                $info,
+                                $info-invert,
+                                $info-light,
+                                $info-dark,
+                        ),
+                        "success": (
+                                $success,
+                                $success-invert,
+                                $success-light,
+                                $success-dark,
+                        ),
+                        "warning": (
+                                $warning,
+                                $warning-invert,
+                                $warning-light,
+                                $warning-dark,
+                        ),
+                        "danger": (
+                                $danger,
+                                $danger-invert,
+                                $danger-light,
+                                $danger-dark,
+                        ),
+                ),
+                $custom-colors
+);
+
+// Links
+$link: $primary;
+$link-invert: $primary-invert;
+$link-focus-border: $primary;
+
+// Import Bulma and Buefy styles
+@import "~bulma";
+@import "~buefy/src/scss/buefy";
 
 html, body {
   font-family: 'Montserrat', sans-serif !important;
@@ -6,19 +89,39 @@ html, body {
 //additional color helpers
 
 @mixin for-phone-only {
-  @media (max-width: 599px) { @content; }
+  @media (max-width: 599px) {
+    @content;
+  }
 }
+
+@mixin for-tablet-portrait-down {
+  @media (max-width: 1023px) and (min-width: 600px) {
+    @content;
+  }
+}
+
 @mixin for-tablet-portrait-up {
-  @media (min-width: 600px) { @content; }
+  @media (min-width: 600px) {
+    @content;
+  }
 }
+
 @mixin for-tablet-landscape-up {
-  @media (min-width: 900px) { @content; }
+  @media (min-width: 900px) {
+    @content;
+  }
 }
+
 @mixin for-desktop-up {
-  @media (min-width: 1200px) { @content; }
+  @media (min-width: 1200px) {
+    @content;
+  }
 }
+
 @mixin for-big-desktop-up {
-  @media (min-width: 1800px) { @content; }
+  @media (min-width: 1800px) {
+    @content;
+  }
 }
 
 
@@ -112,11 +215,17 @@ html, body {
   .nav-brand {
     font-size: 1.2em;
     line-height: 1em;
-    width: 200px;
+    width: 100%;
     color: #000;
   }
 
   $rand_color: rgb(random(255), random(255), random(255));
+
+
+  .reach-me {
+    margin-left: auto;
+
+  }
 
   .hamburger {
     margin-left: auto;
@@ -242,8 +351,8 @@ html, body {
   justify-content: flex-end;
   align-content: unset;
   align-items: unset;
-  overflow-x:hidden !important;
-  @include for-phone-only{
+  overflow-x: hidden !important;
+  @include for-phone-only {
     align-content: center;
     align-items: center;
   }
@@ -273,17 +382,41 @@ html, body {
       justify-content: center;
 
 
-      .line-1 {
+      .mouse-shape {
         width: 20px;
-        height: 25px;
+        height: 28px;
         border-radius: 15px;
         border-left: 2px solid #fff;
         border-right: 2px solid #fff;
         border-top: 2px solid #fff;
         border-bottom: 2px solid #fff;
-        animation-delay: 10s;
-        animation: changeShape 1.5s ease-in-out ;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+
+        padding: 4px;
       }
+
+
+
+
+      .small-circle{
+        width: 5px;
+        height: 5px;
+        background-color: #fff;
+        border-radius: 4px;
+
+        animation: bounce-2 2.5s infinite ease;
+
+      }
+
+      @keyframes bounce-2 {
+        0%   { transform: translateY(0); }
+        50% { transform: translateY(-16px); }
+        100% { transform: translateY(0); }
+      }
+
+
 
 
       @keyframes changeShape {
@@ -297,7 +430,7 @@ html, body {
           border-radius: 20px;
           transform-origin: center center;
         }
-        100%{
+        100% {
           height: 25px;
           border-left: 2px solid #fff;
           border-right: 2px solid #fff;
@@ -314,7 +447,7 @@ html, body {
   }
 }
 
-.my-image-wrap{
+.my-image-wrap {
   margin-left: auto;
   margin-right: auto;
   display: flex;
@@ -325,7 +458,7 @@ html, body {
   border-radius: 0;
   @include for-phone-only {
 
-   align-content: center;
+    align-content: center;
     width: 320px;
     height: 320px;
     border-radius: 30em;
@@ -347,16 +480,18 @@ html, body {
 }
 
 
-
 .my-bio {
   padding: 6em 0;
-height: auto;
-  @include for-phone-only{
-    height: 60em;
+  height: auto;
+  @include for-phone-only {
+    height: 70em;
+  }
+  @include for-tablet-portrait-down {
+    height: 55em;
   }
 }
 
-.my-section{
+.my-section {
   min-height: 400px;
 }
 
@@ -375,31 +510,98 @@ height: auto;
   }
 }
 
-.no-margin-padding{
+.no-margin-padding {
   margin: 0 auto;
   padding-top: 0;
-  padding-bottom:0 ;
+  padding-bottom: 0;
 }
 
-.h-100-mobile{
+.h-100-mobile {
   height: auto;
-  @include for-phone-only{
+  @include for-phone-only {
     height: 100% !important;
   }
 
 }
 
-.social-wrap{
+.social-wrap {
   display: flex;
   justify-content: space-between;
   width: 200px;
   margin-left: auto;
   margin-right: unset;
-  @include for-phone-only{
+
+  a {
+    text-decoration: none;
+    color: #4a4a4a !important;
+
+    &.linkedin {
+      &:hover {
+        color: #0e76a8 !important;
+      }
+    }
+
+    &.facebook {
+      &:hover {
+        color: #3b5998 !important;
+      }
+    }
+
+    &.twitter {
+      &:hover {
+        color: #00acee !important;
+      }
+    }
+
+    &.github {
+      &:hover {
+        color: #4078c0 !important;
+      }
+    }
+  }
+
+  @include for-phone-only {
     margin-right: auto;
   }
-  .social-icon{
+
+  .social-icon {
     display: inline-block;
 
   }
+}
+
+.is-red {
+  background-color: red !important;
+  color: #fff !important;
+}
+
+.typed {
+  margin-top: auto;
+  @include for-tablet-portrait-down {
+    margin-top: 5em;
+  }
+}
+
+.my-buttons {
+  max-width: 428px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-left: unset;
+  margin-right: unset;
+
+  @media (max-width: 768px) {
+
+    margin-left: auto;
+    margin-right: auto;
+  }
+  @media (max-width: 428px) {
+    width: 100%;
+    justify-content: center;
+    max-width: unset;
+
+    margin-left: auto;
+    margin-right: auto;
+  }
+
 }
