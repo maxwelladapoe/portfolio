@@ -40,7 +40,7 @@
 
         </section>
         <router-view/>
-        <Footer></Footer>
+        <Footer/>
 
     </div>
 </template>

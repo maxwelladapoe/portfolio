@@ -1,7 +1,7 @@
 <template>
-    <div class=" has-background-blue-black">
+    <div class=" ">
 
-        <div class="section">
+        <div class="section has-background-blue-black">
             <section class="container ">
                 <div class="my-bio">
                     <div class="columns is-multiline is-mobile">
@@ -22,8 +22,6 @@
                                 <span class="tag is-rounded  is-outlined">Node</span>
                                 <span class="tag is-rounded  is-outlined">PHP</span>
                                 <span class="tag is-rounded  is-outlined">Python</span>
-                                <span class="tag is-rounded  is-outlined">Java</span>
-                                <span class="tag is-rounded  is-outlined">Dart</span>
                                 <span class="tag is-rounded  is-outlined">Flutter</span>
                                 <span class="tag is-rounded  is-outlined">SQL</span>
                                 <span class="tag is-rounded  is-outlined">MongoDb</span>
@@ -74,9 +72,13 @@
 
 
         <div class="section">
+            <div class="container">
+                <p class="title has-text-centered-mobile">My Portfolio</p>
+                <Carousel :images="images"/>
+            </div>
 
 
-            <Carousel></Carousel>
+
 
         </div>
     </div>
@@ -91,6 +93,71 @@
         name: 'Home',
         components: {
             Carousel
+        },
+        data() {
+            return {
+                images: [
+                    {
+                        title: 'Jobs 233',
+                        description: '',
+                        year: '2021',
+                        type: 'Website',
+                        shape: 'circle',
+                        shapeColor:'#ff6701',
+                        path: '/projects/jobs233.png',
+                        link: 'https://www.jobs233.com'
+                    },
+                    {
+                        title: 'My Holy Bible',
+                        description: '',
+                        year: '2016-2022',
+                        type: 'Android',
+                        shape: 'circle',
+                        shapeColor:'#e68c09',
+                        path: '/projects/my-holy-bible.png',
+                        link: 'https://play.google.com/store/apps/details?id=com.wearepoe.mybible&hl=en&gl=US'
+                    },
+                    {
+                        title: 'Dejavu',
+                        description: '',
+                        year: '2019-2022',
+                        type: 'Website',
+                        shape: 'rounded-square',
+                        shapeColor:'#94ba5f',
+                        path: '/projects/dejavu.png',
+                        link: 'https://www.dejavugh.com'
+                    },
+                    {
+                        title: 'Banner Price Calculator',
+                        description: '',
+                        year: '2019-2022',
+                        type: 'Android',
+                        shape: 'circle',
+                        shapeColor:'#409efe',
+                        path: '/projects/banner-price2.png',
+                        link: 'https://play.google.com/store/apps/details?id=com.pxcsgh.bannerpricecal.bannerpricecalculator&hl=en&gl=US'
+                    },
+                    {
+                        title: 'Dejavu',
+                        description: '',
+                        year: '2019-2022',
+                        type: 'Website',
+                        shape: 'rounded-square',
+                        shapeColor:'#7f6a31',
+                        path: '/projects/accexpo.png',
+                        link: 'https://www.accexpo.com/'
+                    },
+                ]
+            }
+        },
+        methods:{
+            count(){
+
+            },
+            add(){
+
+            }
         }
+
     }
 </script>

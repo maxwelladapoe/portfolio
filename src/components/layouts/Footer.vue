@@ -4,12 +4,12 @@
         <div class="section">
             <div class="container">
                 <div class="columns">
-                    <div class="column is-3">
-                        <p><span class="has-text-weight-bold ">maxwell adapoe</span>
+                    <div class="column is-3 has-text-centered-mobile">
+                        <p><span class="has-text-weight-bold  ">maxwell adapoe</span>
                         </p>
                         <p class="mt-3">Full-stack developer, graphic & UI designer</p>
                     </div>
-                    <div class="column is-6 is-offset-3 has-text-right">
+                    <div class="column is-6 is-offset-3 has-text-right has-text-centered-mobile">
 
                         <p class="mb-3">Check me out</p>
                         <div class="social-wrap">
