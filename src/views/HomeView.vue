@@ -84,7 +84,7 @@
       <div class="py-16">
         <div class="container">
           <p class="text-3xl font-bold text-gray-800 mb-5 text-center xl:text-left">My Portfolio</p>
-          <ProjectsCarousel :images="projectImages" />
+          <ProjectsCarousel :projects="projectImages" />
         </div>
       </div>
     </div>
@@ -191,10 +191,10 @@ const options2: TypedOptions = {
   strings: ['maxwell<br/>adapoe'],
   loop: true,
   typeSpeed: 140,
-  startDelay: 1000,
   contentType: 'html',
   showCursor: false,
-  fadeOut: true
+  fadeOut: true,
+  backDelay:5000,
 }
 </script>
 

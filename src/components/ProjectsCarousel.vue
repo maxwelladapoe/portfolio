@@ -1,19 +1,23 @@
 <template>
-  <div class="flex flex-nowrap items-center max-h-[900px] xl:h-[500px] gap-2">
+  <div class="flex flex-nowrap items-center max-h-[900px] min-h-[500px] gap-2">
     <button
-      class="w-10 h-10 hidden xl:flex cursor-pointer rounded-full hover:bg-red-100 items-center justify-center"
+      class="w-10 h-10 hidden xl:flex cursor-pointer rounded-full hover:bg-red-100 items-center justify-center z-50"
       @click.stop.prevent="prev"
     >
       <ChevronLeftIcon />
     </button>
 
     <div class="display-area flex-1">
+      <template v-for="(project, index) in projects" :key="`${project.title}_${index}`">
+        <img :src="project.imagePath" :alt="project.title" class="hidden" />
+      </template>
+
       <div
         v-if="selectedImage"
         :key="selectedImage.title"
         class="flex flex-col xl:flex-row relative justify-center items-center text-center xl:text-left"
       >
-        <div class="description w-full xl:w-2/5">
+        <div class="description w-full xl:w-2/5 animate__animated animate__fadeIn">
           <p class="font-bold text-2xl">{{ selectedImage.title }}</p>
           <p class="type">{{ selectedImage.type }}</p>
           <p class="year">{{ selectedImage.year }}</p>
@@ -29,17 +33,21 @@
 
         <div class="image relative flex items-center justify-center">
           <div
-            class="h-60 w-60 sm:h-80 sm:w-80 md:h-96 md:w-96 lg:h-[400px] lg:w-[400px] absolute -z-10"
+            class="h-60 w-60 sm:h-80 sm:w-80 md:h-96 md:w-96 lg:h-[400px] lg:w-[400px] absolute -z-10 animate__animated animate__fadeIn"
             :class="selectedImage.shape || 'rounded-full'"
             :style="{ backgroundColor: selectedImage.shapeColor }"
           />
-          <img :src="selectedImage.imagePath" :alt="selectedImage.title" />
+          <img
+            :src="selectedImage.imagePath"
+            :alt="selectedImage.title"
+            class="animate__animated animate__slideInRight"
+          />
         </div>
       </div>
     </div>
 
     <button
-      class="w-10 h-10 hidden xl:flex cursor-pointer rounded-full hover:bg-red-100 items-center justify-center"
+      class="w-10 h-10 hidden xl:flex cursor-pointer rounded-full hover:bg-red-100 items-center justify-center z-50"
       @click.stop.prevent="next"
     >
       <ChevronRightIcon />
@@ -61,7 +69,7 @@
       </button>
     </div>
 
-    <div class="font-bold">{{ selectedIndex + 1 }} of {{ images.length }}</div>
+    <div class="font-bold">{{ selectedIndex + 1 }} of {{ projects.length }}</div>
   </div>
 </template>
 
@@ -71,7 +79,7 @@ import { ref } from 'vue'
 import { ChevronLeftIcon, ChevronRightIcon } from 'vue-tabler-icons'
 const props = withDefaults(
   defineProps<{
-    images: ProjectImage[]
+    projects: ProjectImage[]
     initialIndex?: number
   }>(),
   {
@@ -79,7 +87,7 @@ const props = withDefaults(
   }
 )
 
-const selectedImage = ref(props.images[0])
+const selectedImage = ref(props.projects[0])
 
 const selectedIndex = ref(0)
 
@@ -87,19 +95,19 @@ function prev() {
   if (selectedIndex.value > 0) {
     selectedIndex.value--
   } else {
-    selectedIndex.value = props.images.length - 1
+    selectedIndex.value = props.projects.length - 1
   }
 
-  selectedImage.value = props.images[selectedIndex.value]
+  selectedImage.value = props.projects[selectedIndex.value]
 }
 
 function next() {
-  if (selectedIndex.value + 1 < props.images.length) {
+  if (selectedIndex.value + 1 < props.projects.length) {
     selectedIndex.value++
   } else {
     selectedIndex.value = 0
   }
 
-  selectedImage.value = props.images[selectedIndex.value]
+  selectedImage.value = props.projects[selectedIndex.value]
 }
 </script>
